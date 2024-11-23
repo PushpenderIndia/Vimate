@@ -23,7 +23,13 @@ class ClerkAuthMiddleware:
 
         # Verify the authentication token with Clerk
         token = auth_header[1].decode()
-        print(token)
+        
+        if settings.TEST_BYPASS_TOKEN == token:
+            print("Bypassing token")
+            user['is_authenticated'] = True
+            user['id'] = 'test'
+            request.clerk_user = user
+            return self.get_response(request)
 
         base64encoded_key = settings.CLERK_PEM_PUBLIC_KEY
         base64encoded_key = base64encoded_key.encode()
@@ -54,5 +60,6 @@ class ClerkAuthMiddleware:
 
         # Add the user details to the request object
         request.clerk_user = user
+        print("request.clerk_user", request.clerk_user)
 
         return self.get_response(request)

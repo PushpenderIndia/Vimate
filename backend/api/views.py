@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from permissions.clerk import ClerkAuthenticated
 from .tasks import generate_video
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 import os
@@ -21,7 +22,7 @@ class PlayerDataView(APIView):
         return Response({})
 
 class GenerateVideoAPI(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [ClerkAuthenticated]
 
     @extend_schema(
         summary="Generate Video",
@@ -35,6 +36,7 @@ class GenerateVideoAPI(APIView):
     def get(self, request):
         topic = request.query_params.get('topic', 'Photosynthesis')
         language_code = request.query_params.get('lang', 'hi')
+        pdf_file_path = request.query_params.get('pdf_file_path', '')
         language_symbols = {
             "en": "English",
             "es": "Spanish",

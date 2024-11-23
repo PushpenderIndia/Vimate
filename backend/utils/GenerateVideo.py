@@ -5,7 +5,7 @@ import string
 import concurrent.futures
 import cloudscraper
 from easygoogletranslate import EasyGoogleTranslate
-from GenerateVoice import GenerateVoice
+from .GenerateVoice import GenerateVoice
 from dotenv import load_dotenv
 import os
 import time

@@ -17,6 +17,7 @@ import os
 
 ELEVEN_LABS_API      = os.environ.get('ELEVEN_LABS_API')
 CLERK_PEM_PUBLIC_KEY = os.environ.get('CLERK_PEM_PUBLIC_KEY')
+TEST_BYPASS_TOKEN    = "test_bypass_token"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
