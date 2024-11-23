@@ -17,12 +17,12 @@ class GenerateVoice:
 
     def convert_text_to_speech(self, text, output_file='output.mp3', chunk_size=1024):
         model_id = "eleven_multilingual_v2"
-        
+
         voice_settings = {
             "stability": 0.5,
             "similarity_boost": 0.5
         }
-        
+
         data = {
             "text": text,
             "model_id": model_id,
@@ -41,7 +41,7 @@ class GenerateVoice:
 if __name__ == "__main__":
     from dotenv import load_dotenv
     load_dotenv()
-    import os 
+    import os
 
     ELEVEN_LABS_API = os.environ.get('ELEVEN_LABS_API')
 
