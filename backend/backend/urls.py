@@ -25,9 +25,14 @@ from drf_spectacular.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('celery-progress/', include('celery_progress.urls')),
 
     # Swagger/OpenAPI Endpoints
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
+
+admin.site.site_header = "Vimate - Admin"
+admin.site.site_title = "Vimate Admin Portal"
+admin.site.index_title = "Welcome to Admin Portal"

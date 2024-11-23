@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-# from .utils import Player, GenerateVideo
+from .tasks import generate_video
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 import os
 
@@ -34,8 +34,27 @@ class GenerateVideoAPI(APIView):
     )
     def get(self, request):
         topic = request.query_params.get('topic', 'Photosynthesis')
-        lang = request.query_params.get('lang', 'hi')
-        videogen = GenerateVideo(topic, ELEVEN_LABS_API, lang)
-        data_json = videogen.start()
-        scene_length = len(data_json)
-        return Response({'data_json': data_json, 'scene_length': scene_length})
+        language_code = request.query_params.get('lang', 'hi')
+        language_symbols = {
+            "en": "English",
+            "es": "Spanish",
+            "fr": "French",
+            "hi": "Hindi",
+            "ar": "Arabic",
+            "bn": "Bengali",
+            "te": "Telugu",
+            "mr": "Marathi",
+            "ta": "Tamil",
+            "ur": "Urdu",
+            "gu": "Gujarati",
+            "kn": "Kannada",
+            "or": "Odia",
+            "pa": "Punjabi"
+        }
+        if language_code not in language_symbols:
+            return Response({'error': f'Invalid language code, valid codes are: {list(language_symbols.keys())}'}, status=400)
+        else:
+            task_result = generate_video.apply_async(args=[topic, pdf_file_path, language_code])
+
+            task_id = task_result.id
+            return Response({'progress_id': task_id})
