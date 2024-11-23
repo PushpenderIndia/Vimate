@@ -8,9 +8,9 @@
     - Clerk SDK
 - Backend
     - Django
-    - Django Restful
-    - Celery 
-    - Redis
+    - Django Restful (**API**)
+    - Celery (**Used for Background Worker**)
+    - Redis  (**Broker for Celery & Django**)
     - ElevenLabs (**Voice Generation**)
     - Stable Diffusion (**Open Source LLM**)
     - Mistral 7b (**Open Source LLM**)
@@ -18,6 +18,7 @@
 
 ## Backend Installation (Django Restful)
 ```
+# For Linux
 sudo apt install redis-server nginx python3-pip -y
 sudo systemctl start redis-server
 sudo systemctl enable redis-server
