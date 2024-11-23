@@ -121,6 +121,53 @@ class GenerateVideo:
         return filename
 
     def start(self):
+        
+        # data = {
+        #     0: {
+        #         "audio": "static/audio/1_VXFL.mp3", 
+        #         "poster": "https://media.gettyimages.com/id/613443380/video/p…20&c=wNg1jkQME_6ccPG6-zmT-G0YmPVoJxHdZRxQVKQRSRg=", 
+        #         "text": "photosynthesis is the process by which green plant…arbon dioxide, and water into glucose and oxygen.", 
+        #         "video": "https://media.gettyimages.com/id/613443380/video/p…20&c=3GibCDl-IKJjm1ChNa2yooPKCKDZ53sCSg32Ihsh-T8="
+        #         },
+        #     1: {
+        #         "audio": "static/audio/2_QA00.mp3", 
+        #         "poster": "https://media.gettyimages.com/id/618590521/video/c…20&c=hi-_M-PUEqrJfti2LijF1aAoIEl2YVf_VTkIb9cBylo=", 
+        #         "text": "it takes place in the chloroplasts of plant cells,…ecifically in the thylakoid membranes and stroma.", 
+        #         "video": "https://media.gettyimages.com/id/618590521/video/c…20&c=y0zHIlQ9mTdOQ0MJRIhpHDxKJ3T-up7dKj3uocnvKj0="
+        #         },
+        #     2: {
+        #         "audio": "static/audio/3_BES8.mp3", 
+        #         "poster": "https://media.gettyimages.com/id/1065633832/video/…20&c=q-MnG5O8maonRFLLJVT0cJW63anl52dJ9TT7AtujSjo=", 
+        #         "text": "the key components involved in photosynthesis are …d enzymes that facilitate the chemical reactions.", 
+        #         "video": "https://media.gettyimages.com/id/1065633832/video/…20&c=Qz3Y0dmf1ytLLuWcewJ2rtupD5geuR5HnoG4sYn7-Ww="
+        #         },
+        #     3: {
+        #         "audio": "static/audio/4_MR0Y.mp3", 
+        #         "poster": "https://media.gettyimages.com/id/1150661518/video/…20&c=jyub0IrR9uVtjO9t3w-WTbdEpmh7rURuxgM6KsyboXo=", 
+        #         "text": "the light-dependent reactions occur in the thylako…orption of light energy to produce atp and nadph.", 
+        #         "video": "https://media.gettyimages.com/id/1150661518/video/…20&c=y01PACfl44y9Q1rNIz6JjWKXsHjAjdYzl5Z1i_9H9HA="
+        #         },
+        #     4: {
+        #         "audio": "static/audio/5_13CY.mp3", 
+        #         "poster": "", 
+        #         "text": "the light-independent reactions, also known as the… carbon dioxide into glucose using atp and nadph.", 
+        #         "video": ""
+        #         },
+        #     5: {
+        #         "audio": "static/audio/6_ZCPT.mp3", 
+        #         "poster": "", 
+        #         "text": "photosynthesis not only provides energy for plants…sential for the survival of all living organisms.", 
+        #         "video": ""
+        #         },
+        #     6: {
+        #         "audio": "static/audio/7_MTUY.mp3", 
+        #         "poster": "https://media.gettyimages.com/id/1279058397/video/…20&c=t_GrlvBDgrGECA71hycX31LwFk-K0d49FD_yhTKAAvQ=", 
+        #         "text": "the overall equation for photosynthesis is: 6co2 + 6h2o + light energy → c6h12o6 + 6o2.", 
+        #         "video": "https://media.gettyimages.com/id/1279058397/video/…20&c=QueFrXouhCmRRrJmWjUDJDKY-SngZOSpf5cyCQFcEy4="
+        #         }
+        # }
+        
+        
         data = {}
         content_list = self.generate_content(self.prompt)
         print(content_list)
