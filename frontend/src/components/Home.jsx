@@ -1,6 +1,12 @@
 import React from 'react'
+import { SignedIn, SignedOut, SignInButton, SignOutButton, useAuth } from "@clerk/clerk-react";
 
 function Home() {
+  const { isLoaded, signOut } = useAuth();
+
+  // Ensure Clerk authentication state is loaded
+  if (!isLoaded) return null;
+
   return (
     <>
   <header className="main-header" id="mainHeader">
@@ -186,22 +192,37 @@ function Home() {
               id="header-anonym-menu"
               style={{ display: "flex" }}
             >
-              <button
-                className="sign-btn sign-in rf-en"
-                id="signInBtnHeader"
-                aria-label="Sign In"
-                type="button"
-              >
-                Sign In
-              </button>
-              <button
-                className="sign-btn sign-up"
-                id="signUpBtnHeader"
-                aria-label="Try for Free"
-                type="button"
-              >
-                Try for Free
-              </button>
+              <SignedOut>
+                <SignInButton>
+                <button
+                  className="sign-btn sign-in rf-en"
+                  id="signInBtnHeader"
+                  aria-label="Sign In"
+                  type="button"
+                  >
+                    Login
+                </button>
+                </SignInButton>
+                <button
+                  className="sign-btn sign-up"
+                  id="signUpBtnHeader"
+                  aria-label="Try for Free"
+                  type="button"
+                >
+                  Try for Free
+                </button>
+              </SignedOut>
+              <SignedIn>
+                <button
+                  className="sign-btn sign-up"
+                  id="signUpBtnHeader"
+                  aria-label="Logout"
+                  type="button"
+                  onClick={() => signOut()}
+                >
+                  Logout
+                </button>
+              </SignedIn>
             </div>
           </div>
         </div>
