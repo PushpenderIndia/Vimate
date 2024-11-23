@@ -56,6 +56,14 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Vimate API',
+    'DESCRIPTION': 'A RESTful API for the Vimate platform with features like video generation, user authentication, and more.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'COMPONENT_SPLIT_REQUEST': True,
+}
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [

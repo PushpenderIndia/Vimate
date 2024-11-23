@@ -3,5 +3,5 @@ from .views import PlayerDataView, GenerateVideoAPI
 
 urlpatterns = [
     path('player_data/', PlayerDataView.as_view(), name='player_data'),
-    path('api/generate_video/', GenerateVideoAPI.as_view(), name='generate_video'),
+    path('generate_video/', GenerateVideoAPI.as_view(), name='generate_video'),
 ]
